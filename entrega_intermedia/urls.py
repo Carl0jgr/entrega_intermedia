@@ -1,4 +1,4 @@
-"""entrega_intermedia URL Configuration
+"""mvt URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -15,7 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from blog.views import home, descripcion,ver,mod,add,registrarUsuario,editarUsuario, eliminarUsuario, modificarUsuario, addpublicacion
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',home),
+    path('home.html', home),
+    path('ver',ver),
+    path('ver.html',ver),
+    path('mod',mod),
+    path('add',add),
+    path('registarUsuario/',registrarUsuario),
+    path('editarUsuario/<id>/',editarUsuario),
+    path('modificarUsuario/',modificarUsuario),
+    path('eliminarUsuario/<id>/',eliminarUsuario),
+    path('addpublicacion',addpublicacion),
+    path('descripcion/', descripcion),
+    path('descripcion.html', descripcion),
 ]
