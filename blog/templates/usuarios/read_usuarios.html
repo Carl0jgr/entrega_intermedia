@@ -1,0 +1,11 @@
+% load static %}
+<link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+{% for estudiante in estudiantes %}
+    <li>
+        {{ estudiante }}
+        <a href="/blog/update_usuarios/{{usuario.id}}" class="btn btn-warning">Edit</a>
+        <a href="/blog/delete_usuarios/{{usuario.id}}" class="btn btn-danger">Delete</a>
+    </li>
+    <br>
+{% endfor %}
+<a class="btn btn-success" href="/blog/create_estudiantes">+ Agregar /blog/update_usuarios/</a>
