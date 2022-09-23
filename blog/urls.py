@@ -7,12 +7,19 @@ urlpatterns = [
 
     path('', home),
     path('home.html', home),
-    path('usuarios/', usuarios),
-    path('usuarios.html', usuarios),
     path('descripcion/', descripcion),
     path('descripcion.html', descripcion),
     path('publicaciones.html', publicaciones),
     path('publicaciones/', publicaciones),
+    path('ver',ver),
+    path('ver.html',ver),
+    path('mod',mod),
+    path('add',add),
+    path('registarUsuario/',registrarUsuario),
+    path('editarUsuario/<id>/',editarUsuario),
+    path('modificarUsuario/',modificarUsuario),
+    path('eliminarUsuario/<id>/',eliminarUsuario),
+    path('addpublicacion',addpublicacion)
     
     
 ]
