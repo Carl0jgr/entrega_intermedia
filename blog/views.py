@@ -1,9 +1,18 @@
+from urllib import request
 from django.shortcuts import render,redirect
 from .models import Usuario, Publicaciones,Categoria
+from django.db.models import Q
 
 # Create your views here.
 def home(request):
-    publicaciones=Publicaciones.objects.all()
+    buscar= request.GET.get("busqueda")
+    if buscar:
+        publicaciones = Publicaciones.objects.filter(
+            Q(titulo__icontains= buscar) |
+            Q(resumen__icontains = buscar)
+            ).distinct()
+    else:
+        publicaciones=Publicaciones.objects.all()
     usuarios=Usuario.objects.all()
     categoria=Categoria.objects.all()
     return render(request,"home.html",{"publicaciones":publicaciones,"usuarios":usuarios,"categoria":categoria})
