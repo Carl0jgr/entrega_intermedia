@@ -7,7 +7,7 @@
     <h1>Agregar Publicacion</h1>
     <div class="card">
         <div class="card-body">
-            <form action="/registarPublicacion/" method="POST"> {% csrf_token %}
+            <form action="/registrarPublicacion/" method="POST"> {% csrf_token %}
                 <div class="mb-3">
                     <label for="titulo" class="form-label">Titulo</label>
                     <input type="text" class="form-control" id="titulo" name="titulo" placeholder="titulo" required>
@@ -17,7 +17,7 @@
                     <input type="text" class="form-control" id="articulo" name="articulo" placeholder="articulo" required>
                 </div>
                 <div class="mb-3">
-                    <select name="id_categoria" id="id_categoria">
+                    <select name="id_categoria" id="id_categoria" required>
                         <option value="">Seleccione Una Categoria</option>
                         {% for n in categorias %}
                             <option value={{n.id_categoria}}>{{n.nombre}}</option>
@@ -26,10 +26,10 @@
                     <a href="addcategoria" class="btn btn-success">+ Agregar Categoria</a>
                 </div>
                 <div class="mb-3">
-                    <select name="id_usuario" id="id_usuario">
+                    <select name="id_usuario" id="id_usuario" required>
                         <option value="">Seleccione Usuario</option>
                         {% for n in usuarios %}
-                            <option value={{n.id_usuario}}>{{n.nombre}}</option>
+                            <option value={{n.id_usuario}}>{{n.nombre}} {{n.apellido}}</option>
                         {% endfor %}
                     </select>
                     <a href="add" class="btn btn-success">+ Agregar Usuario</a>

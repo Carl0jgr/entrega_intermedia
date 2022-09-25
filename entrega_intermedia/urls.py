@@ -15,21 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blog.views import home, descripcion,ver,mod,add,registrarUsuario,editarUsuario, eliminarUsuario, modificarUsuario, addpublicacion
+from blog.views import home,ver,mod,add,registrarUsuario,editarUsuario, eliminarUsuario, modificarUsuario, addpublicacion,addcategoria,registrarCategoria,registrarPublicacion
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home),
-    path('home.html', home),
-    path('ver',ver),
-    path('ver.html',ver),
+    path('ver/',ver),
     path('mod',mod),
-    path('add',add),
-    path('registarUsuario/',registrarUsuario),
+    path('add/',add),
+    path('registrarUsuario/',registrarUsuario),
     path('editarUsuario/<id>/',editarUsuario),
     path('modificarUsuario/',modificarUsuario),
     path('eliminarUsuario/<id>/',eliminarUsuario),
     path('addpublicacion',addpublicacion),
-    path('descripcion/', descripcion),
-    path('descripcion.html', descripcion),
+    path('addcategoria',addcategoria),
+    path('registrarCategoria/',registrarCategoria),
+    path('registrarPublicacion/',registrarPublicacion)
+    
 ]

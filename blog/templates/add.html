@@ -7,7 +7,7 @@
     <h1>Agregar Usuarios</h1>
     <div class="card">
         <div class="card-body">
-            <form action="/registarUsuario/" method="POST"> {% csrf_token %}
+            <form action="/registrarUsuario/" method="POST"> {% csrf_token %}
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="tipo_usuario" class="form-label">Tipo de Usuario</label>
-                    <select name="tipo_usuario" id="tipo_usuario">
+                    <select name="tipo_usuario" id="tipo_usuario" required>
                         <option value="">Selecciona tipo de usuario</option>
                         <option value="U">Usuarios</option>
                         <option value="B">Blogger</option>

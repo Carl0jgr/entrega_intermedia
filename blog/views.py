@@ -3,7 +3,10 @@ from .models import Usuario, Publicaciones,Categoria
 
 # Create your views here.
 def home(request):
-    return render(request,"home.html")
+    publicaciones=Publicaciones.objects.all()
+    usuarios=Usuario.objects.all()
+    categoria=Categoria.objects.all()
+    return render(request,"home.html",{"publicaciones":publicaciones,"usuarios":usuarios,"categoria":categoria})
 
 def ver(request):
     usuarios=Usuario.objects.all()
@@ -16,8 +19,21 @@ def mod(request):
 def add(request):
     return render(request,"add.html")
 
+def addcategoria(request):
+    return render(request,"addcategoria.html")
+
 def addpublicacion(request):
-    return render(request,"addpublicacion.html")
+    usuarios=Usuario.objects.all()
+    categorias=Categoria.objects.all()
+    return render(request, "addpublicacion.html", {"usuarios":usuarios,"categorias":categorias})
+
+def registrarPublicacion(request):
+    titulo=request.POST['titulo']
+    articulo=request.POST['articulo']
+    id_categoria=request.POST['id_categoria']
+    id_usuario=request.POST['id_usuario']
+    publicacion=Publicaciones.objects.create(titulo=titulo,contenido=articulo,id_categoria=id_categoria,id_usuario=id_usuario)
+    return redirect('/')
 
 def registrarUsuario(request):
     nombre=request.POST['nombre']
@@ -26,12 +42,17 @@ def registrarUsuario(request):
     telefono=request.POST['telefono']
     tipo=request.POST['tipo_usuario']
     usuario=Usuario.objects.create(nombre=nombre,apellido=apellido,correo=correo,telefono=telefono,tipo=tipo)
-    return redirect('/')
+    return redirect('/ver')
+
+def registrarCategoria(request):
+    nombre=request.POST['nombre']
+    categoria=Categoria.objects.create(nombre=nombre)
+    return redirect('/addpublicacion')
 
 def eliminarUsuario(request, id):
     usuario=Usuario.objects.get(id_usuario=id)
     usuario.delete()
-    return redirect('/')
+    return redirect('/ver')
 
 def editarUsuario(request, id):
     usuario=Usuario.objects.get(id_usuario=id)
@@ -51,7 +72,4 @@ def modificarUsuario(request):
     usuario.telefono=telefono
     usuario.tipo=tipo
     usuario.save()
-    return redirect('/')
-
-def descripcion(request):
-    return render (request, "descripcion.html")
+    return redirect('/ver')
