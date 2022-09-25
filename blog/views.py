@@ -7,10 +7,17 @@ from django.db.models import Q
 def home(request):
     buscar= request.GET.get("busqueda")
     if buscar:
-        publicaciones = Publicaciones.objects.filter(
+        publicaciones_cuantos = Publicaciones.objects.filter(
+            Q(titulo__icontains= buscar) |
+            Q(resumen__icontains = buscar)
+            ).distinct().count()
+        if publicaciones_cuantos>=1:
+            publicaciones = Publicaciones.objects.filter(
             Q(titulo__icontains= buscar) |
             Q(resumen__icontains = buscar)
             ).distinct()
+        else:
+            publicaciones=Publicaciones.objects.all()   
     else:
         publicaciones=Publicaciones.objects.all()
     usuarios=Usuario.objects.all()
