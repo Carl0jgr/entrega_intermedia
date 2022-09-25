@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blog.views import home,ver,mod,add,registrarUsuario,editarUsuario, eliminarUsuario, modificarUsuario, addpublicacion,addcategoria,registrarCategoria,registrarPublicacion, readme
+from blog.views import home,ver,mod,add,registrarUsuario,editarUsuario, eliminarUsuario, modificarUsuario, addpublicacion,addcategoria,registrarCategoria,registrarPublicacion, readme, perfil, articulo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +31,8 @@ urlpatterns = [
     path('addpublicacion',addpublicacion),
     path('addcategoria',addcategoria),
     path('registrarCategoria/',registrarCategoria),
-    path('registrarPublicacion/',registrarPublicacion)
+    path('registrarPublicacion/',registrarPublicacion),
+    path('perfil/<id>/',perfil),
+    path('articulo/<id>/',articulo),
     
 ]
