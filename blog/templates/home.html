@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block title %}
+    Blog | Publicaciones
+{% endblock %}
+
 {% block body %}
 
 
@@ -12,7 +16,7 @@
                 <!-- Post preview-->
                 {% for n in publicaciones %}
                 <div class="post-preview">
-                    <a href="post.html">
+                    <a href="/articulo/{{n.id_publicaciones}}">
                         <h2 class="post-title">{{n.titulo}}</h2>
                         <h3 class="post-subtitle">{{n.resumen}}</h3>
                     </a>
@@ -20,7 +24,7 @@
                         Posteado por
                         {% for m in usuarios %}
                             {% if m.id_usuario == n.id_usuario %}
-                                <a href="#!"> {{m.nombre}} {{m.apellido}} </a>
+                                <a href="/perfil/{{n.id_usuario}}"> {{m.nombre}} {{m.apellido}} </a>
                             {% endif %}
                         {% endfor %}
                         {{n.fecha}}

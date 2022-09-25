@@ -62,6 +62,16 @@ def editarUsuario(request, id):
     usuario=Usuario.objects.get(id_usuario=id)
     return render(request, "editar.html", {'usuario':usuario})
 
+def perfil(request, id):
+    usuario=Usuario.objects.get(id_usuario=id)
+    return render(request, "perfil.html", {'usuario':usuario})
+
+def articulo(request, id):
+    publicacion=Publicaciones.objects.get(id_publicaciones=id)
+    usuarios=Usuario.objects.all()
+    categoria=Categoria.objects.all()
+    return render(request, "post.html", {'publicaciones':publicacion,"usuarios":usuarios,"categorias":categoria})
+
 def modificarUsuario(request):
     id=request.POST['id']
     nombre=request.POST['nombre']
