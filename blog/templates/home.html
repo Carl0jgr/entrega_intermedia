@@ -20,10 +20,10 @@
                         Posteado por
                         {% for m in usuarios %}
                             {% if m.id_usuario == n.id_usuario %}
-                                <a href="#!"> {{m.nombre}} </a>
+                                <a href="#!"> {{m.nombre}} {{m.apellido}} </a>
                             {% endif %}
                         {% endfor %}
-                        September 24, 2022
+                        {{n.fecha}}
                     </p>
                 </div>
                 <!-- Divider-->

@@ -28,6 +28,7 @@ class Publicaciones (models.Model):
     contenido=models.CharField(max_length=255,null=TRUE)
     id_categoria=models.IntegerField()
     id_usuario=models.IntegerField()
+    fecha=models.DateTimeField(auto_now=TRUE,null=TRUE)
 
     def __str__(self):
         return "({}) {} [{}] --{}--".format(self.id_publicaciones, self.titulo, self.id_categoria, self.id_usuario)
