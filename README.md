@@ -9,7 +9,7 @@ Fue desarrollado por Victor Briñes y Carlo Gonzalez, participantes de la cursad
 
 se puede clonar el repositorio con:
 
-	git clone (url)
+	git clone https://github.com/Carl0jgr/entrega_intermedia.git
 
 y posteriormente ejecutar el siguiente comando en la terminal del VSC:
 
