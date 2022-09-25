@@ -24,9 +24,10 @@ class Categoria (models.Model):
 class Publicaciones (models.Model):
     id_publicaciones=models.AutoField(primary_key=True)
     titulo=models.CharField(max_length=50)
+    resumen=models.CharField(max_length=100, null=TRUE)
     contenido=models.CharField(max_length=255,null=TRUE)
-    id_categoria=models.ForeignKey(Categoria,on_delete=models.RESTRICT)
-    id_usuario=models.ForeignKey(Usuario,on_delete=models.RESTRICT)
+    id_categoria=models.IntegerField()
+    id_usuario=models.IntegerField()
 
     def __str__(self):
         return "({}) {} [{}] --{}--".format(self.id_publicaciones, self.titulo, self.id_categoria, self.id_usuario)
