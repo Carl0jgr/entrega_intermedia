@@ -22,6 +22,9 @@ def add(request):
 def addcategoria(request):
     return render(request,"addcategoria.html")
 
+def readme(request):
+    return render(request,"readme.html")
+
 def addpublicacion(request):
     usuarios=Usuario.objects.all()
     categorias=Categoria.objects.all()
@@ -29,10 +32,11 @@ def addpublicacion(request):
 
 def registrarPublicacion(request):
     titulo=request.POST['titulo']
+    resumen=request.POST['resumen']
     articulo=request.POST['articulo']
     id_categoria=request.POST['id_categoria']
     id_usuario=request.POST['id_usuario']
-    publicacion=Publicaciones.objects.create(titulo=titulo,contenido=articulo,id_categoria=id_categoria,id_usuario=id_usuario)
+    publicacion=Publicaciones.objects.create(titulo=titulo,resumen=resumen,contenido=articulo,id_categoria=id_categoria,id_usuario=id_usuario)
     return redirect('/')
 
 def registrarUsuario(request):
