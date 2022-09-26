@@ -3,6 +3,8 @@
 
 Este repositorio contiene la entrega intermedia del proyecto final del Curso de Python en CODERHOUSE.
 
+Está desarrollado en Django y este debe estar instalado para poder ejecutar el servidor y poder visualizar el proyecto
+
 ## Autores
 Fue desarrollado por Victor Briñes y Carlo Gonzalez, participantes de la cursada 34620
 ## Funcionalidad
