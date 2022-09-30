@@ -1,10 +1,15 @@
-{% extends "./base.html" %}
+{% extends "base.html" %}
+
+{% load static %}
 
 {% block title %}
     Blog | Ver Todos los Usuarios
 {% endblock %}
 
 {% block body %}
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -34,5 +39,8 @@
                 </tr>
             </tfoot>
         </table>
+        </div>
+    </div>
+    </div>
 {% endblock %}
    
